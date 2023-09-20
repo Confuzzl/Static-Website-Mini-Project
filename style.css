@@ -1,0 +1,12 @@
+header {
+    background-color: aqua;
+}
+
+.flexbox {
+    display: flex;
+    background-color: pink;
+}
+
+.box {
+    flex: 0 0 4em;
+}
