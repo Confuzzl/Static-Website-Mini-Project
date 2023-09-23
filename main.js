@@ -1,4 +1,4 @@
-export let htmlIDs = ["index", "favorite", "skills", "spots"];
+// export let htmlIDs = ["index", "favorite", "skills", "spots"];
 
 const titleLookup = {
     "index": "Main Page",
@@ -13,38 +13,29 @@ const folderLookup = {
     "spots": "nyc"
 }
 
-function clickableRedirects(htmlName) {
-    output = Object.keys(titleLookup).map((site) => { return site === htmlName });
-    console.log(output);
-    return output;
-}
-
 function generateBoilerPlate(htmlName) {
     document.title = titleLookup[htmlName];
-    // generateNavigationBar();
+    document.head.innerHTML += `<link rel= "stylesheet" href="../style.css">`;
 }
 
 function generateNavigationBar(name) {
-    main = `
-    <main>
-        <div id="nav_bar">`
-    // document.body.innerHTML += `
-    // <main>
-    //     <div id="nav_bar">
-    //         <div id="index"></div>
-    //         <div id="favorite"></div>
-    //         <div id="skills"></div>
-    //         <div id="spots"></div>
-    //     </div>
-    // </main>`;
-    for (const [name, title] of Object.entries(titleLookup)) {
-        main += `
-        <div id="${name}">
-            <a href="../${folderLookup[name]}/${name}.html">${title}</a>
-        </div>`;
+    navBar = `<div class="nav_bar">`;
+    for (const [htmlID, title] of Object.entries(titleLookup)) {
+        navBar += `<div class="${htmlID === name ? "nav_bar_item nav_bar_item_current" : "nav_bar_item"}" id="${htmlID}">`;
+        // main += `<p align="center">`;
+        navBar += htmlID === name ? `<a class="nav_bar_hyperlink nav_bar_hyperlink_current">${title}</a>` :
+            `<a class="nav_bar_hyperlink" href="../${folderLookup[htmlID]}/${htmlID}.html">${title}</a>`;
+        // main += "</p>";
+        navBar += `</div>`;
     }
-    main += `
-        </div>
-    </main>`;
-    document.body.innerHTML = main;
+    document.body.innerHTML += navBar;
+    main = `<main>`;
+    if (name === "index") {
+        main += `<p>AAAAA</p>`
+        main += `<script defer src="script.js" onload="writeMain()"></script>`;
+        // main += `<div onload="writeMain()"></div>`
+        // main += `<script>console.log("aaa")</script>`
+    }
+    main += `</main>`;
+    document.body.innerHTML += main;
 }
