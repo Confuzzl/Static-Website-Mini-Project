@@ -44,7 +44,8 @@ function generateFooter() {
     let feedback = `<h2>Help me improve my website!</h2>`;
     feedback += `<form>`;
     feedback += `<label for="feedback">Feedback:</label><br>`;
-    feedback += `<textarea id="feedback" name="feedback" rows="4"></textarea>`;
+    feedback += `<textarea id="feedback" name="feedback" rows="4" ></textarea><br>`;
+    feedback += `<input type="submit" value="Submit feedback">`;
     feedback += `</form>`;
     document.getElementsByTagName("footer")[0].innerHTML += feedback;
 }
