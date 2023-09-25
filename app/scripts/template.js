@@ -42,7 +42,7 @@ function generateHeader(htmlName) {
 
 function generateFooter() {
     let feedback = `<h2>Help me improve my website!</h2>`;
-    feedback += `<form>`;
+    feedback += `<form netlify>`;
     feedback += `<label for="feedback">Feedback:</label><br>`;
     feedback += `<textarea id="feedback" name="feedback" rows="4" ></textarea><br>`;
     feedback += `<input type="submit" value="Submit feedback">`;
