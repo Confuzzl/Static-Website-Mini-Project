@@ -1,3 +1,7 @@
+* {
+    font-family: 'Noto Sans', sans-serif;
+}
+
 body {
     background-color: gainsboro;
     margin: 0;
@@ -5,15 +9,15 @@ body {
 }
 
 header {
-    margin: 1em 1em 0 1em;
+    margin: 1rem 1rem 0 1rem;
 }
 
 main {
-    margin: 1em 1em 1em 1em;
+    margin: 1rem 1rem 1rem 1rem;
 }
 
 footer {
-    margin: 1em 1em 1em 1em;
+    margin: 1rem 1rem 1rem 1rem;
 }
 
 textarea {
@@ -22,7 +26,6 @@ textarea {
 
 .nav_bar_hyperlink {
     text-decoration: none;
-    font-family: Helvetica, sans-serif;
     color: black;
 }
 
@@ -44,7 +47,7 @@ textarea {
     margin: 0;
 
     width: auto;
-    height: 2em;
+    height: 2rem;
 
     position: relative;
 
@@ -83,7 +86,7 @@ textarea {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 2fr, 1fr;
-    gap: 1em 1em;
+    gap: 1rem 1rem;
 }
 
 .article_column_grid_item {
@@ -106,8 +109,7 @@ textarea {
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
     grid-template-rows: repeat(var(--rows), 1fr);
-    gap: 1em 1em;
-    /* margin: 1em 1em 1em 1em; */
+    gap: 1rem 1rem;
     aspect-ratio: calc(var(--columns)/var(--rows));
 }
 
