@@ -7,8 +7,9 @@ function writeMain() {
     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
     </div>`;
     {
-        let gallery = `<div class="article_column_grid_item gallery">`;
-        gallery += `<div style="margin: 1em 1em 1em 1em;">`;
+        let gallery = `<div class="article_column_grid_item">`;
+        gallery += `<div class="gallery">`;
+        gallery += `<div>`;
         {
             gallery += `<div class="gallery_grid" style="--columns: 11; --rows: 7;">`;
             for (let i = 0; i < 4; i++) {
@@ -18,12 +19,23 @@ function writeMain() {
                 gallery += `</figure>`;
             }
             gallery += `</div>`;
-            gallery += `<p>Pictures of my cat DG :)</p>`;
+            gallery += `<p style="margin-bottom: 0;">Pictures of my cat DG :)</p>`;
             gallery += `</div>`;
         }
+        gallery += `</div>`;
         gallery += `</div>`;
         textColumns += gallery;
     }
     textColumns += `</div>`;
     document.getElementById("main").innerHTML += textColumns;
+}
+
+function writeFooter() {
+    let feedback = `<h2>Help me improve my website!</h2>`;
+    feedback += `<form onsubmit="return false;" >`;
+    feedback += `<label for="feedback">Feedback form:</label><br>`;
+    feedback += `<textarea id="feedback" name="feedback" cols="50" rows="4" placeholder="e.g. &#8220Wow. This website is so cool.&#8221"></textarea><br>`;
+    feedback += `<input type="submit" value="Submit">`;
+    feedback += `</form>`;
+    document.getElementById("footer").innerHTML += feedback;
 }

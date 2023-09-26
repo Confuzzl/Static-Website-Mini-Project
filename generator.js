@@ -20,14 +20,11 @@ for (const page of pageDirectories) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="scripts/template.js"></script>
     <title>${titleLookup[name]}</title>
-    <link rel= "stylesheet" href="styles/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
         
 <body onload="generateTemplate('${name}')">
-        
+    
 </body>
 
 </html>`, (err) => { if (err) return console.log("error"); });

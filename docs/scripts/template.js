@@ -12,17 +12,20 @@ const folderLookup = {
 };
 
 function generateTemplate(htmlName) {
-    document.body.innerHTML += `<header></header>`;
+    document.body.innerHTML += `<header id="header"></header>`;
     generateHeader(htmlName);
     document.body.innerHTML += `<main id="main"></main>`;
-    document.body.innerHTML += `<footer></footer>`;
-    generateFooter();
+    document.body.innerHTML += `<footer id="footer"></footer>`;
 
-    let script = document.createElement("script");
-    script.setAttribute("src", `scripts/${htmlName}.js`);
-    script.setAttribute("onload", "writeMain()");
+    let mainScript = document.createElement("script");
+    mainScript.setAttribute("src", `scripts/${htmlName}.js`);
+    mainScript.setAttribute("onload", "writeMain()");
+    document.getElementById("main").appendChild(mainScript);
 
-    document.getElementById("main").appendChild(script);
+    let footerScript = document.createElement("script");
+    footerScript.setAttribute("src", `scripts/${htmlName}.js`);
+    footerScript.setAttribute("onload", "writeFooter()");
+    document.getElementById("footer").appendChild(footerScript);
 }
 
 function generateHeader(htmlName) {
@@ -30,22 +33,12 @@ function generateHeader(htmlName) {
     let navBar = `<div class="nav_bar_background"></div>`;
     navBar += `<div class="nav_bar">`;
     for (const [htmlID, title] of Object.entries(titleLookup)) {
-        navBar += `<nav class="nav_bar_item" id="${htmlID}"${htmlID === htmlName ? 'style="background-color: gainsboro; outline: white outset 4px;"' : ""}>`;
+        navBar += `<nav class="nav_bar_item" id="${htmlID}" ${htmlID === htmlName ? 'selected' : ""}>`;
         navBar += htmlID === htmlName ? `<a class="nav_bar_hyperlink" style="font-weight: bold;">${title}</a>` :
             `<a class="nav_bar_hyperlink" href="${htmlID}.html">${title}</a>`;
         navBar += `</nav>`;
     }
     navBar += `</div>`;
     navBar += `</div>`;
-    document.getElementsByTagName("header")[0].innerHTML += navBar;
-}
-
-function generateFooter() {
-    let feedback = `<h2>Help me improve my website!</h2>`;
-    feedback += `<form onsubmit="return false;" >`;
-    feedback += `<label for="feedback">Feedback:</label><br>`;
-    feedback += `<textarea id="feedback" name="feedback" rows="4" ></textarea><br>`;
-    feedback += `<input type="submit" value="Submit feedback">`;
-    feedback += `</form>`;
-    document.getElementsByTagName("footer")[0].innerHTML += feedback;
+    document.getElementById("header").innerHTML += navBar;
 }
