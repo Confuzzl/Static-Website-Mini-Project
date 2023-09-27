@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+            <html lang="en">
+                <head>
+                <meta charset="UTF-8" />
+                    <meta
+                        name="viewport"
+                        content="width=device-width, initial-scale=1.0"
+                    />
+                    <script src="scripts/favorite.js"></script>
+                    <title>Favorites</title>
+                    <link rel="stylesheet" href="styles/style.css" />
+                </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="scripts/template.js"></script>
-    <title>Favorites</title>
-    <link rel="stylesheet" href="styles/style.css">
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-</head>
-        
-<body onload="generateTemplate('favorite')">
-        
-</body>
-
-</html>
+                <body onload="writeMain(); writeFooter();">
+                    <header id="header">
+                        <div class="nav_bar_background"></div>
+                        <div class="nav_bar"><nav class="nav_bar_item" id="index" ><a class="nav_bar_hyperlink" href="index.html">Main Page</a></nav><nav class="nav_bar_item" id="favorite" selected><a class="nav_bar_hyperlink" style="font-weight: bold;">Favorites</a></nav><nav class="nav_bar_item" id="skills" ><a class="nav_bar_hyperlink" href="skills.html">Skills</a></nav><nav class="nav_bar_item" id="spots" ><a class="nav_bar_hyperlink" href="spots.html">NYC</a></nav></div></div>
+                    </header>
+                    <main id="main">
+                        <div class="article_column_grid">
+                            <div class="article_column_grid_item" id="column_1"></div>
+                            <div class="article_column_grid_item" id="column_2"></div>
+                        </div>
+                    </main>
+                    <footer id="footer"></footer>
+                </body>
+            </html>
