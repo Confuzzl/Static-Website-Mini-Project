@@ -12,7 +12,7 @@ pageDirectories = fs
     .filter((file) => fs.lstatSync(`${__dirname}\\docs\\${file}`).isFile());
 
 for (const page of pageDirectories) {
-    let name = page.replace(".html", "");
+    const name = page.replace(".html", "");
     fs.writeFile(
         `docs\\${page}`,
         /*html*/ `<!DOCTYPE html>
@@ -31,7 +31,9 @@ for (const page of pageDirectories) {
                 <body onload="writeMain(); writeFooter();">
                     <header id="header">
                         <div class="nav_bar_background"></div>
-                        ${header(name)}
+                        <div class="nav_bar">
+                            ${header(name)} 
+                        </div>
                     </header>
                     <main id="main">
                         <div class="article_column_grid">
@@ -49,18 +51,19 @@ for (const page of pageDirectories) {
 }
 
 function header(name) {
-    let navBar = `<div class="nav_bar">`;
+    let navBar = ``;
     for (const [htmlID, title] of Object.entries(titleLookup)) {
-        navBar += `<nav class="nav_bar_item" id="${htmlID}" ${
-            htmlID === name ? "selected" : ""
-        }>`;
-        navBar +=
-            htmlID === name
-                ? `<a class="nav_bar_hyperlink" style="font-weight: bold;">${title}</a>`
-                : `<a class="nav_bar_hyperlink" href="${htmlID}.html">${title}</a>`;
-        navBar += `</nav>`;
+        if (htmlID === name) {
+            navBar += /*html*/ `
+            <nav class="nav_bar_item" id="${htmlID}" selected>
+                <a class="nav_bar_hyperlink" style="font-weight: heavy;">${title}</a>
+            </nav>`;
+        } else {
+            navBar += /*html*/ `
+            <nav class="nav_bar_item" id="${htmlID}">
+                <a class="nav_bar_hyperlink" href="${htmlID}.html">${title}</a>
+            </nav>`;
+        }
     }
-    navBar += `</div>`;
-    navBar += `</div>`;
     return navBar;
 }

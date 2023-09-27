@@ -6,13 +6,11 @@ const imageDimensions = [
 ];
 
 function writeMain() {
-    const column1 = document.getElementById("column_1");
-    column1.innerHTML += /*html*/ `
+    document.getElementById("column_1").innerHTML += /*html*/ `
         <h1>Welcome to my website!</h1>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
     `;
-    const column2 = document.getElementById("column_2");
-    column2.innerHTML += /*html*/ `
+    document.getElementById("column_2").innerHTML += /*html*/ `
         <div class="article_column_grid_item">
             <div class="gallery">
                 <div class="gallery_grid" style="--columns: 11; --rows: 7;">
@@ -25,13 +23,13 @@ function writeMain() {
 }
 
 function writeFooter() {
-    let feedback = `<h2>Help me improve my website!</h2>`;
-    feedback += `<form onsubmit="return false;" >`;
-    feedback += `<label for="feedback">Feedback form:</label><br>`;
-    feedback += `<textarea id="feedback" name="feedback" cols="50" rows="4" placeholder="e.g. &#8220Wow. This website is so cool.&#8221"></textarea><br>`;
-    feedback += `<input type="submit" value="Submit">`;
-    feedback += `</form>`;
-    document.getElementById("footer").innerHTML += feedback;
+    document.getElementById("footer").innerHTML += /*html*/ `
+    <h2>Help me improve my website!</h2>
+    <form onsubmit="return false;">
+        <label for="feedback">Feedback form:</label><br>
+        <textarea id="feedback" name="feedback" cols="50" rows="4" placeholder="e.g. &#8220Wow. This website is so cool.&#8221"></textarea><br>
+        <input type="submit" value="Submit" style="border-radius: 0.5rem; background-color: limegreen;">
+    </form>`;
 }
 
 function getImageHTML() {
