@@ -3,7 +3,11 @@ const imageDimensions = [
     [1, 4, 5, 8],
     [4, 8, 1, 8],
     [8, 12, 1, 8],
+    [1, 6, 8, 15],
+    [6, 12, 8, 14],
+    [6, 12, 14, 15],
 ];
+const type = ["img", "img", "img", "img", "img", "vid", "aud"];
 
 function writeMain() {
     document.getElementById("column_1").innerHTML += /*html*/ `
@@ -13,7 +17,7 @@ function writeMain() {
     document.getElementById("column_2").innerHTML += /*html*/ `
         <div class="article_column_grid_item">
             <div class="gallery">
-                <div class="gallery_grid" style="--columns: 11; --rows: 7;">
+                <div class="gallery_grid" style="--columns: 11; --rows: 14;">
                     ${getImageHTML()}
                 </div>
                 <p style="margin-bottom: 0;">Pictures of my cat DG :)</p>
@@ -34,12 +38,31 @@ function writeFooter() {
 
 function getImageHTML() {
     gallery = "";
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < type.length; i++) {
         dimensions = `grid-column-start: ${imageDimensions[i][0]}; grid-column-end: ${imageDimensions[i][1]}; grid-row-start: ${imageDimensions[i][2]}; grid-row-end: ${imageDimensions[i][3]};`;
-        gallery += /*html*/ `
-        <figure class="gallery_grid_item" id="image_${i}" style="${dimensions}">
-            <img src="assets/${i}.jpg" class="gallery_grid_img">
-        </figure>`;
+        gallery += ((_) => {
+            switch (type[i]) {
+                case "img":
+                    return /*html*/ `
+                    <figure class="gallery_grid_item" style="${dimensions}">
+                        <img class="gallery_grid_content" src="assets/${i}.jpg">
+                    </figure>`;
+                case "vid":
+                    return /*html*/ `
+                    <figure class="gallery_grid_item" style="${dimensions}">
+                        <video class="gallery_grid_content" controls loop>
+                            <source src="assets/BISKIES.mp4" type="video/mp4">
+                        </video>
+                    </figure>`;
+                case "aud":
+                    return /*html*/ `
+                    <figure class="gallery_grid_item" style="${dimensions}">
+                        <audio class="gallery_grid_content" controls loop>
+                            <source src="assets/purr.mp3" type="audio/mp3">
+                        </audio>
+                    </figure>`;
+            }
+        })();
     }
     return gallery;
 }
