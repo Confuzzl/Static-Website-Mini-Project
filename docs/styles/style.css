@@ -22,6 +22,10 @@ h2 {
     margin: 0;
 }
 
+p {
+    font-size: larger;
+}
+
 body {
     background-color: black;
     margin: 0;
@@ -33,7 +37,7 @@ header {
 }
 
 main {
-    padding: 1rem 1rem 1rem 1rem;
+    padding: 1rem;
 
     background-color: gainsboro;
     border-radius: 0.5rem 0.5rem 0 0;
@@ -42,7 +46,7 @@ main {
 
 footer {
     position: relative;
-    padding: 1rem 1rem 1rem 1rem;
+    padding: 1rem;
 
     background-color: gainsboro;
 }
@@ -51,16 +55,8 @@ textarea {
     resize: none;
     border-radius: 0.5rem;
     border: 0;
-}
-
-.page {
-    background-color: gainsboro;
-
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    padding: 0.5rem;
+    font-size: medium;
 }
 
 .copyright {
@@ -116,13 +112,13 @@ textarea {
 .nav_bar_hyperlink {
     text-decoration: none;
     color: black;
+    font-size: x-large;
 }
 
 
 .article_column_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 2fr, 1fr;
     gap: 1rem 1rem;
 }
 
@@ -158,7 +154,7 @@ textarea {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
 }
 
 table {
@@ -166,7 +162,7 @@ table {
 
     background-color: darkgray;
     border-radius: 0.5rem;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 0.5rem;
 }
 
 th,

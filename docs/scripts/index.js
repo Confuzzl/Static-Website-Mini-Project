@@ -12,7 +12,12 @@ const type = ["img", "img", "img", "img", "img", "vid", "aud"];
 function writeMain() {
     document.getElementById("column_1").innerHTML += /*html*/ `
         <h1>Welcome to my website!</h1>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+        <p>
+            &emsp;Hi! I'm Vincent, and this is the first website I've ever made. 
+            Prior to this course, I knew a little bit about web development, but I had never actually touched any HTML, CSS, or Javascript.
+            I'm mildly excited to learn more about web development, and I expect myself to teach myself much more than what the curriculum provides.
+            As you can see on the right, I have a cat (his name is DG) and I love him very much :).
+        </p>
     `;
     document.getElementById("column_2").innerHTML += /*html*/ `
         <div class="article_column_grid_item">
@@ -20,26 +25,15 @@ function writeMain() {
                 <div class="gallery_grid" style="--columns: 11; --rows: 14;">
                     ${getImageHTML()}
                 </div>
-                <p style="margin-bottom: 0;">Pictures of my cat DG :)</p>
             </div>
         </div>
     `;
 }
 
-function writeFooter() {
-    document.getElementById("footer").innerHTML += /*html*/ `
-    <h2>Help me improve my website!</h2>
-    <form onsubmit="return false;">
-        <label for="feedback">Feedback form:</label><br>
-        <textarea id="feedback" name="feedback" cols="50" rows="4" placeholder="e.g. &#8220Wow. This website is so cool.&#8221"></textarea><br>
-        <input type="submit" value="Submit" style="border-radius: 0.5rem; background-color: limegreen;">
-    </form>`;
-}
-
 function getImageHTML() {
-    gallery = "";
+    let gallery = "";
     for (let i = 0; i < type.length; i++) {
-        dimensions = `grid-column-start: ${imageDimensions[i][0]}; grid-column-end: ${imageDimensions[i][1]}; grid-row-start: ${imageDimensions[i][2]}; grid-row-end: ${imageDimensions[i][3]};`;
+        let dimensions = `grid-column-start: ${imageDimensions[i][0]}; grid-column-end: ${imageDimensions[i][1]}; grid-row-start: ${imageDimensions[i][2]}; grid-row-end: ${imageDimensions[i][3]};`;
         gallery += ((_) => {
             switch (type[i]) {
                 case "img":

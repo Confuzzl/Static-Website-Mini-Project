@@ -41,10 +41,11 @@
                     </main>
                     <footer id="footer">
                         <div class="copyright">&copy 2023 Vincent Yang</div>
-                        <h2>Help me improve my website!</h2>
-                        <form onsubmit="return false;">
-                            <label for="feedback">Feedback form:</label><br>
-                            <textarea id="feedback" name="feedback" cols="50" rows="4" placeholder="e.g. &#8220Wow. This website is so cool.&#8221"></textarea><br>
+                        <form onsubmit="this.reset(); return false;">
+                            <label for="feedback">
+                                <h2>Help me improve my website!</h2>
+                            </label>
+                            <textarea id="feedback" name="feedback" cols="50" rows="4" placeholder="Provide your feedback here"></textarea><br>
                             <input type="submit" value="Submit" style="border-radius: 0.5rem; background-color: limegreen;">
                         </form>
                     </footer>
